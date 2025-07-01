@@ -125,9 +125,9 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(🚀 Server running on port ${PORT});
-  console.log(🌍 Environment: ${process.env.NODE_ENV || 'development'});
-  console.log(🔒 CORS: Dynamic origin matching enabled);
+  console.log('🚀 Server running on port ${PORT}');
+  console.log('🌍 Environment: ${process.env.NODE_ENV || 'development'}');
+  console.log('🔒 CORS: Dynamic origin matching enabled');
 });
 
 module.exports = app;
