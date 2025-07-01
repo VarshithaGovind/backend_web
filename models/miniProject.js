@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const { connectS } = require('../config/db');
-const conn = connectS();
 
 const miniProjectSchema = new mongoose.Schema({
   title: String,
