@@ -31,7 +31,7 @@ app.use('/api/projects', projectRoute);
 
 app.use('/api/mid-projects', midProjectRoutes);
 app.use('/api/users', userRoutes);
-app.use('/api/ui-library', uiLibraryRoutes);
+app.use(uiLibraryRoutes);
 app.use('/api/transactions', transactionRoutes);
 
 // 404 Handler

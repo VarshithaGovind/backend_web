@@ -56,7 +56,7 @@ exports.approveClubMember = async (req, res) => {
     await sendMail(
       user.email,
       'Club Membership Approved',
-      'Congratulations! Your club membership has been approved. Welcome to the premium club!'
+      'Congratulations! Your club membership has been approved. Welcome to the TechLearn Club!'
     );
 
     res.json({ message: 'User approved as club member', user });
@@ -79,7 +79,7 @@ exports.rejectClubMember = async (req, res) => {
     await sendMail(
       user.email,
       'Club Membership Rejected',
-      'We are sorry to inform you that your club membership request has been rejected. Please contact support for more information.'
+      'We are sorry to inform you that your club membership request has been rejected. Because your transaction ID is not valid.'
     );
 
     res.json({ message: 'User rejected as club member', user });

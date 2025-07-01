@@ -24,7 +24,7 @@ const uiLibrary = [
 ];
 
 // Route to serve UI Library data as JSON
-router.get("/ui-library", (req, res) => {
+router.get("/", (req, res) => {
   res.json(uiLibrary);
 });
 

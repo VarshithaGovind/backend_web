@@ -1,9 +1,14 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const { connectV } = require('../config/db');
+const conn = connectV();
 
-const MajorSchema = new mongoose.Schema({ 
-    title: { type: String, required: true },
-    description: { type: String },
-    isFree: { type: Boolean, default: false }
-})
+const majorProjectSchema = new mongoose.Schema({
+  title: String,
+  description: String,
+  image: String,
+  languages: [String],
+  guideSteps: [String],
+  clubOnly: Boolean,
+});
 
-module.exports = mongoose.model('Major', MajorSchema);
+module.exports = conn.model('MajorProject', majorProjectSchema);

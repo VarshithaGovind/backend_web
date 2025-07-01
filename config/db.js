@@ -1,14 +1,27 @@
 const mongoose = require('mongoose');
 require('dotenv').config(); // needed to read .env
 
-const connectDB = async () => {
-    try {
-        await mongoose.connect(process.env.MONGO_URI);
-        console.log('✅ Database connected');
-    } catch (err) {
-        console.error('❌ Database connection failed');
-        process.exit(1);
+let connV = null;
+let connS = null;
+
+const connectV = () => {
+    if (!connV) {
+        connV = mongoose.createConnection(process.env.MONGO_URI_V, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
     }
+    return connV;
 };
 
-module.exports = connectDB;
+const connectS = () => {
+    if (!connS) {
+        connS = mongoose.createConnection(process.env.MONGO_URI_S, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+    }
+    return connS;
+};
+
+module.exports = { connectV, connectS };

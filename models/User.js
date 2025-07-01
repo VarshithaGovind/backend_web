@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const { connectV } = require("../config/db");
+const conn = connectV();
 
 const userSchema = new mongoose.Schema(
     {
@@ -47,5 +49,4 @@ userSchema.methods.matchPassword = async function(enteredPassword){
     return await bcrypt.compare(enteredPassword,this.password);
 };
 
-const User = mongoose.model("User", userSchema);
-module.exports = User;
+module.exports = conn.model("User", userSchema);

@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const { connectS } = require('../config/db');
+const conn = connectS();
 
 const MidProjectModel = new mongoose.Schema({
   title: String,
@@ -8,4 +10,4 @@ const MidProjectModel = new mongoose.Schema({
   clubOnly: Boolean,
 });
 
-module.exports = mongoose.model("MidProject", MidProjectModel);
+module.exports = conn.model("MidProject", MidProjectModel);
