@@ -10,6 +10,7 @@ const connectV = () => {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
+        console.log("✅ Connected to MONGO_URI_V");
     }
     return connV;
 };
@@ -20,8 +21,15 @@ const connectS = () => {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
+        console.log("✅ Connected to MONGO_URI_S");
     }
     return connS;
 };
 
-module.exports = { connectV, connectS };
+// ✅ Combine both into one function
+const connectDB = () => {
+    connectV();
+    connectS();
+};
+
+module.exports = { connectV, connectS, connectDB };
