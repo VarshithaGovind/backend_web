@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-const { connectS } = require('../config/db');
-const conn = connectS();
+
 
 const majorProjectSchema = new mongoose.Schema({
   title: String,
