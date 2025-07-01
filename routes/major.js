@@ -3,7 +3,7 @@ const router = express.Router();
 const Major = require('../models/majorProject');
 
 // Get all major projects (first 3 free if not a club member)
-router.get('/major-projects', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const projects = await Major.find();
         res.json(projects);
@@ -13,7 +13,7 @@ router.get('/major-projects', async (req, res) => {
 });
 
 // Add a major project
-router.post('/major-projects', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const { title, description, isFree } = req.body;
         const newProject = new Major({ title, description, isFree });
