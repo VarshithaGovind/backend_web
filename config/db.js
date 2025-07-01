@@ -10,6 +10,12 @@ const connectV = () => {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
+        connV.on('connected', () => {
+            console.log('✅ Connected to MONGO_URI_V database');
+        });
+        connV.on('error', (err) => {
+            console.error('❌ Error connecting to MONGO_URI_V:', err);
+        });
     }
     return connV;
 };
@@ -19,6 +25,12 @@ const connectS = () => {
         connS = mongoose.createConnection(process.env.MONGO_URI_S, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
+        });
+        connS.on('connected', () => {
+            console.log('✅ Connected to MONGO_URI_S database');
+        });
+        connS.on('error', (err) => {
+            console.error('❌ Error connecting to MONGO_URI_S:', err);
         });
     }
     return connS;
