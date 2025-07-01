@@ -69,7 +69,7 @@ Content-Type: application/json
 GET  http://localhost:5000/api/mid-projects/build/mid-projects
 
 ### Getting Projects on deployment server
-GET  https://techlearn-backend-relp.onrender.com/api/mid-projects/build/mid-projects
+GET  https://backend-web-1-cr1w.onrender.com/
 
 ### Normal User
 GET  http://localhost:5000/api/mid-projects/build/mid-project/6853036c48df175f16f94926
@@ -79,7 +79,7 @@ Authorization: Bearer
 GET  http://localhost:5000/api/mid-projects/build/mid-project/6853036c48df175f16f94926
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjJkYmExMzUwYTQ3NjZlNGM5YzY1NCIsImlhdCI6MTc1MTMwOTIxNywiZXhwIjoxNzUxOTE0MDE3fQ.wXl94JiSotebFNBMU432et5f5kcEzru5KAFyjQGo-u0
 ###
-GET http://localhost:5000/api/ui-library
+GET https://backend-web-1-cr1w.onrender.com/api/ui-library
 
 
 ### Submitting Transaction ID
@@ -94,7 +94,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjJkYmExM
 }
 
 ### transactions List
-GET http://localhost:5000/api/transactions/admin/club/transactions
+GET https://backend-web-1-cr1w.onrender.com/api/transactions/admin/club/transactions
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjJkODI1ZmQ4YmYyM2I0NjBhYzM5OCIsImlhdCI6MTc1MTMwODMyNiwiZXhwIjoxNzUxOTEzMTI2fQ.5teipkczCCO9n5N2WdBq_t5d1fGJoxbxl3aY2FCg7V4
 
 ### Admin Rejection Endpoint

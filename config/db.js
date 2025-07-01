@@ -36,4 +36,10 @@ const connectS = () => {
     return connS;
 };
 
-module.exports = { connectV, connectS };
+// ✅ Combine both into one function
+const connectDB = () => {
+    connectV();
+    connectS();
+};
+
+module.exports = { connectV, connectS, connectDB };
