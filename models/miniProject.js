@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-const { connectS } = require('../config/db');
-const conn = connectS();
+
 const miniProjectSchema = new mongoose.Schema({
   title: String,
   description: String,
@@ -9,5 +8,4 @@ const miniProjectSchema = new mongoose.Schema({
   guideSteps: [String],
   clubOnly: Boolean,
 });
-
-module.exports = conn.model('MiniProject', miniProjectSchema);
+module.exports = mongoose.model('MiniProject', miniProjectSchema);
