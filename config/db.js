@@ -42,4 +42,4 @@ const connectDB = () => {
     connectS();
 };
 
-module.exports = { connectV, connectS, connectDB };    db.js
+module.exports = { connectV, connectS, connectDB };    
