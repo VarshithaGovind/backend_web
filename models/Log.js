@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const { connectV } = require('../config/db');
-const conn = connectV();
 
 const logSchema = new mongoose.Schema({
   message: String,
@@ -8,4 +6,4 @@ const logSchema = new mongoose.Schema({
   timestamp: { type: Date, default: Date.now }
 });
 
-module.exports = conn.model('Log', logSchema);
+module.exports = mongoose.model('Log', logSchema);
