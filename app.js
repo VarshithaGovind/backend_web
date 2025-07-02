@@ -1,9 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const connectDB = require('./config/db');
 const app = express();
-connectDB(); 
-
 // ✅ More permissive CORS for development/testing
 const corsOptions = {
   origin: function (origin, callback) {
