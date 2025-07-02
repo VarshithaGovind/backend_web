@@ -1,45 +1,17 @@
 const mongoose = require('mongoose');
-require('dotenv').config(); // needed to read .env
+require('dotenv').config(); // Load .env variables
 
-let connV = null;
-let connS = null;
-
-const connectV = () => {
-    if (!connV) {
-        connV = mongoose.createConnection(process.env.MONGO_URI_V, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
-        connV.on('connected', () => {
-            console.log('✅ Connected to MONGO_URI_V database');
-        });
-        connV.on('error', (err) => {
-            console.error('❌ Error connecting to MONGO_URI_V:', err);
-        });
-    }
-    return connV;
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI_S, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+    console.log('✅ Connected to MongoDB Atlas');
+  } catch (err) {
+    console.error('❌ MongoDB connection error:', err);
+    process.exit(1); // Exit on failure
+  }
 };
 
-const connectS = () => {
-    if (!connS) {
-        connS = mongoose.createConnection(process.env.MONGO_URI_S, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
-        connS.on('connected', () => {
-            console.log('✅ Connected to MONGO_URI_S database');
-        });
-        connS.on('error', (err) => {
-            console.error('❌ Error connecting to MONGO_URI_S:', err);
-        });
-    }
-    return connS;
-};
-
-// ✅ Combine both into one function
-const connectDB = () => {
-    connectV();
-    connectS();
-};
-
-module.exports = { connectV, connectS, connectDB };    
+module.exports = connectDB;
