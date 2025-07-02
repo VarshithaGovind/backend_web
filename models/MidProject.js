@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
-const { connectS } = require('../config/db');
-const conn = connectS();
 
-const MidProjectModel = new mongoose.Schema({
+const midProjectSchema = new mongoose.Schema({
   title: String,
   image: String,
   languages: [String],
@@ -10,4 +8,4 @@ const MidProjectModel = new mongoose.Schema({
   clubOnly: Boolean,
 });
 
-module.exports = conn.model("MidProject", MidProjectModel);
+module.exports = mongoose.model('MidProject', midProjectSchema);
