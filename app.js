@@ -4,37 +4,29 @@ const app = express();
 const connectDB = require('./config/db');
 connectDB();
 
-// ✅ More permissive CORS for development/testing
 const corsOptions = {
   origin: function (origin, callback) {
-    // In development, allow all origins
-    if (process.env.NODE_ENV === 'development') {
+    // requests made by the same server or tools like curl have no Origin header
+    if (!origin) {
       return callback(null, true);
     }
-    
-    // In production, be more restrictive
-    if (!origin) return callback(null, true);
-    
-    const allowedPatterns = [
-      /^https:\/\/.*\.vercel\.app$/,      // Any Vercel domain
-      /^https:\/\/.*\.netlify\.app$/,     // Netlify domains
-      /^http:\/\/localhost:\d+$/,         // Any localhost port
-      /^https:\/\/localhost:\d+$/,        // Any localhost HTTPS port
-    ];
-    
-    const isAllowed = allowedPatterns.some(pattern => pattern.test(origin));
-    
-    if (isAllowed) {
-      callback(null, true);
-    } else {
-      console.log('🚫 Blocked origin:', origin);
-      callback(null, false); // Don't throw error, just deny
+
+    /* exact match for local dev */
+    if (origin === 'http://localhost:3000') {
+      return callback(null, true);
     }
+
+    /* regex for all Vercel deployments */
+    if (/^https:\/\/.*\.vercel\.app$/.test(origin)) {
+      return callback(null, true);
+    }
+
+    /* anything else is rejected */
+    return callback(new Error('Not allowed by CORS'));
   },
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
-  credentials: true,
-  optionsSuccessStatus: 200
+
+  methods: ['GET', 'POST', 'OPTIONS'],
+  credentials: true
 };
 
 app.use(cors(corsOptions));
