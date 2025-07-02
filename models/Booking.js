@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const { connectS } = require('../config/db');
-const conn = connectS();
+const { connectV } = require('../config/db');
+const conn = connectV();
 
 const bookingSchema = new mongoose.Schema({
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
