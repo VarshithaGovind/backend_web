@@ -11,4 +11,4 @@ const miniProjectSchema = new mongoose.Schema({
   clubOnly: Boolean,
 });
 
-module.exports = conn.mongoose('MiniProject', miniProjectSchema);
+module.exports = conn.model('MiniProject', miniProjectSchema);
