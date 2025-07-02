@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const { connectS } = require('../config/db');
-const conn = connectS();
 
 const accessLogSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
@@ -8,4 +6,4 @@ const accessLogSchema = new mongoose.Schema({
   timestamp: { type: Date, default: Date.now }
 });
 
-module.exports = conn.model('AccessLog', accessLogSchema);
+module.exports = mongoose.model('AccessLog', accessLogSchema);
